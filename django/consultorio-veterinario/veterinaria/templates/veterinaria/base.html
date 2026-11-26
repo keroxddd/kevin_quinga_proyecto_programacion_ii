@@ -154,7 +154,7 @@
 			<a class="marca" href="{% url 'inicio' %}">✚ Consultorio veterinario</a>
 			{% if user.is_authenticated %}
 				<a href="{% url 'panel' %}">Mi panel</a>
-				{% if user.is_staff %}
+				{% if perms.veterinaria.view_consulta %}<a href="{% url 'consulta_lista' %}">Consultas</a>{% endif %}{% if perms.veterinaria.view_veterinario %}<a href="{% url 'veterinarios' %}">Veterinarios</a>{% endif %}{% if perms.veterinaria.view_especialidad %}<a href="{% url 'especialidades' %}">Especialidades</a>{% endif %}{% if perms.veterinaria.view_propietario %}<a href="{% url 'propietarios' %}">Propietarios</a>{% endif %}{% if user.is_staff %}
 					<a href="{% url 'admin:index' %}">Administración</a>
 				{% endif %}
 				<form method="post" action="{% url 'logout' %}">

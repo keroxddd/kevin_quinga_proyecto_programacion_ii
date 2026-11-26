@@ -1,0 +1,1 @@
+{% extends "veterinaria/base.html" %}{% block contenido %}<div class="card"><h1>{{ consulta }}</h1><p>Diagnóstico: {{ consulta.diagnostico }}</p><p>Tratamiento: {{ consulta.tratamiento }}</p><a href="{% url 'consulta_lista' %}">Volver</a></div>{% endblock %}

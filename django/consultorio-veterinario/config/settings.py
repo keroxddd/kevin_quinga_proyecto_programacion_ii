@@ -11,15 +11,16 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5f(@!!0f9y8!^21@0=xcl&7z8ai)3d!_f+5n$_fbp)(kpp5iqa'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'solo-desarrollo-local-cambiar-antes-de-publicar-2026')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
 
 ALLOWED_HOSTS = []
 
