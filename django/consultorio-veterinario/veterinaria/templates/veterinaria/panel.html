@@ -1,0 +1,43 @@
+{% extends "veterinaria/base.html" %}
+
+{% block contenido %}
+	<section class="hero">
+		<h1>Hola, {{ perfil.nombre }}</h1>
+		<p>Desde aquí puedes consultar tu información y la de tus mascotas.</p>
+		<a href="{% url 'perfil' %}">Editar mis datos →</a>
+	</section>
+
+	<div class="grid">
+		<section class="card">
+			<h2>🐾 Mis mascotas</h2>
+			<a class="btn" href="{% url 'mascota_nueva' %}">Agregar mascota</a>
+			<ul>
+				{% for mascota in mascotas %}
+					<li>
+						<strong>{{ mascota.nombre }}</strong> · {{ mascota.especie }}
+						{% if mascota.raza %}, {{ mascota.raza }}{% endif %}
+						— <a href="{% url 'mascota_editar' mascota.pk %}">Editar</a>
+					</li>
+				{% empty %}
+					<li>Aún no has registrado mascotas.</li>
+				{% endfor %}
+			</ul>
+		</section>
+
+		<section class="card">
+			<h2>📅 Mis citas</h2>
+			<a class="btn" href="{% url 'cita_nueva' %}">Agendar cita</a>
+			<ul>
+				{% for cita in citas %}
+					<li>
+						<strong>{{ cita.mascota.nombre }}</strong> · {{ cita.fecha|date:"d/m/Y H:i" }}<br>
+						Veterinario: {{ cita.veterinario }}<br>
+						{{ cita.motivo }}
+					</li>
+				{% empty %}
+					<li>Aún no tienes citas registradas.</li>
+				{% endfor %}
+			</ul>
+		</section>
+	</div>
+{% endblock %}
