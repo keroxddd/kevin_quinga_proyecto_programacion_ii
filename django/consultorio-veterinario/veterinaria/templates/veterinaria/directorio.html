@@ -1,0 +1,1 @@
+{% extends "veterinaria/base.html" %}{% block contenido %}<div class="card"><h1>{{ titulo }}</h1><ul>{% for objeto in objetos %}<li><a href="{{ objeto.pk }}/">{{ objeto }}</a></li>{% empty %}<li>Sin registros.</li>{% endfor %}</ul></div>{% endblock %}

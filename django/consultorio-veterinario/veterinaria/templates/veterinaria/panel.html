@@ -9,7 +9,7 @@
 
 	<div class="grid">
 		<section class="card">
-			<h2>🐾 Mis mascotas</h2>
+			<h2>🐾 Mis mascotas</h2><p><a href="{% url 'mascota_lista' %}">Ver listado completo</a></p>
 			<a class="btn" href="{% url 'mascota_nueva' %}">Agregar mascota</a>
 			<ul>
 				{% for mascota in mascotas %}
@@ -25,7 +25,7 @@
 		</section>
 
 		<section class="card">
-			<h2>📅 Mis citas</h2>
+			<h2>📅 Mis citas</h2><p><a href="{% url 'cita_lista' %}">Ver listado completo</a></p>
 			<a class="btn" href="{% url 'cita_nueva' %}">Agendar cita</a>
 			<ul>
 				{% for cita in citas %}

@@ -1,0 +1,1 @@
+{% extends "veterinaria/base.html" %}{% block contenido %}<div class="card"><h1>Consultas</h1><ul>{% for consulta in consultas %}<li><a href="{% url 'consulta_detalle' consulta.pk %}">{{ consulta }}</a></li>{% empty %}<li>No hay consultas.</li>{% endfor %}</ul></div>{% endblock %}

@@ -1,0 +1,1 @@
+{% extends "veterinaria/base.html" %}{% block contenido %}<div class="card"><h1>{{ objeto }}</h1>{% if objeto.telefono %}<p>Teléfono: {{ objeto.telefono }}</p>{% endif %}{% if objeto.correo %}<p>Correo: {{ objeto.correo }}</p>{% endif %}<p><a href="{% url 'panel' %}">Volver al panel</a></p></div>{% endblock %}
