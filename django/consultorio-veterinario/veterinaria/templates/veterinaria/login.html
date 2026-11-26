@@ -1,0 +1,16 @@
+{% extends "veterinaria/base.html" %}
+
+{% block contenido %}
+	<section class="card">
+		<h1>Ingresar</h1>
+		<form method="post">
+			{% csrf_token %}
+			{{ form.as_p }}
+			{% if next %}
+				<input type="hidden" name="next" value="{{ next }}">
+			{% endif %}
+			<button>Ingresar</button>
+		</form>
+		<p>¿No tienes cuenta? <a href="{% url 'registro' %}">Regístrate</a></p>
+	</section>
+{% endblock %}
